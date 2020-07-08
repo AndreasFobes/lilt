@@ -28,10 +28,6 @@ function preload(){
                 createVideo('assets/blinker.mp4'),
                 createVideo('assets/spout.mp4'),
               ];
-
-      for (i = 0; i < vid_paths_init.length; i++) {
-        vid_paths_init[i].hide();
-  }
 }
 
 
@@ -51,6 +47,9 @@ function next_vid(){
 }
 
 function setup() {
+  for (i = 0; i < vid_paths_init.length; i++) {
+        vid_paths_init[i].hide();
+  }
   createCanvas(windowWidth,windowHeight);
   sequence = vid_paths_init;
   shuffle(sequence, true);
