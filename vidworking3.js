@@ -11,49 +11,34 @@ var vid_paths_init;
 var vid;
 
 function preload(){
-// preload the video files and store them in vid_paths
-  vid_paths_init = [createVideo('assets/big_seed.mp4'), 
-                createVideo('assets/bloom.mp4'), 
-                createVideo('assets/blow.mp4'), 
-                createVideo('assets/patch.mp4'), 
-                createVideo('assets/puff.mp4'),
-                createVideo('assets/rotate.mp4'),
-                createVideo('assets/saw.mp4'),
-                createVideo('assets/spin.mp4'),
-                createVideo('assets/web.mp4'),
-                createVideo('assets/allergy.mp4'),
-                createVideo('assets/tangle.mp4'),
-                createVideo('assets/trample.mp4'),
-                createVideo('assets/fleur.mp4'),
-                createVideo('assets/blinker.mp4'),
-                createVideo('assets/spout.mp4'),
-              ];
+// preload the video files
+  big_seed = createVideo('assets/big_seed.mp4');
+  bloom = createVideo('assets/bloom.mp4');
+  blow = createVideo('assets/blow.mp4');
+  patch = createVideo('assets/patch.mp4'); 
+  puff = createVideo('assets/puff.mp4');
+  rotate = createVideo('assets/rotate.mp4');
+  saw = createVideo('assets/saw.mp4');
+  spin = createVideo('assets/spin.mp4');
+  web = createVideo('assets/web.mp4');
+  allergy = createVideo('assets/allergy.mp4');
+  tangle = createVideo('assets/tangle.mp4');
+  trample = createVideo('assets/trample.mp4');
+  fleur = createVideo('assets/fleur.mp4');
+  blinker = createVideo('assets/blinker.mp4');
+  spout = createVideo('assets/spout.mp4');
 }
 
 
-function next_vid(){
-  var current = sequence[index];
-  sequence[index].stop();
-  index++;
-  screen_x = windowWidth/2 + random(400) - 800
-  screen_y = random(100) + 50;
-  
-  if(index == (sequence.length - 1)){
-    index = 0;
-  }
-  console.log(index);
-  console.log(sequence.length);
-  sequence[index].play();
-}
+
 
 function setup() {
-  for (i = 0; i < vid_paths_init.length; i++) {
-        vid_paths_init[i].hide();
+  sequence = [big_seed,bloom,blow,patch,puff,rotate,saw,spin,web,allergy,tangle,trample,fleur,blinker,spout];
+  for (i = 0; i < sequence.length; i++) {
+    sequence[i].hide();
   }
   createCanvas(windowWidth,windowHeight);
-  sequence = vid_paths_init;
-  shuffle(sequence, true);
-  vid = 
+  shuffle(sequence, true); 
   sequence[index].play();
   fade = 255;
 }
@@ -83,6 +68,21 @@ function draw() {
   }
 }
 
+function next_vid(){
+  var current = sequence[index];
+  sequence[index].stop();
+  index++;
+  screen_x = windowWidth/2 + random(400) - 800
+  screen_y = random(100) + 50;
+  
+  if(index == (sequence.length - 1)){
+    index = 0;
+  }
+  console.log(index);
+  console.log(sequence.length);
+  sequence[index].play();
+}
+
 function mousePressed() {
     let fs = fullscreen();
     fullscreen(!fs);
@@ -91,3 +91,4 @@ function mousePressed() {
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
 }
+
