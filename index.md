@@ -10,6 +10,7 @@
 
   <!-- This line removes any default padding and style.
        You might only need one of these values set. -->
+  <div id="p5_loading" class="loadingclass">this could be some sweet graphics loading lots of bits.</div>
   <style> body { padding: 0; margin: 0; } </style>
 </head>
 
